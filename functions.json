@@ -1,0 +1,21 @@
+{
+  "functions": [
+    {
+      "id": "DOCSO",
+      "name": "DOCSO",
+      "description": "Đọc số tiền bằng chữ tiếng Việt (VNĐ)",
+      "parameters": [
+        {
+          "name": "soTien",
+          "description": "Số tiền cần đọc bằng chữ",
+          "type": "number",
+          "dimensionality": "scalar"
+        }
+      ],
+      "result": {
+        "type": "string",
+        "dimensionality": "scalar"
+      }
+    }
+  ]
+}

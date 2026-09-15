@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+    xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+    xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+    xsi:type="TaskPaneApp">
+
+  <!-- Mỗi add-in cần 1 GUID duy nhất. GUID dưới đây đã được tạo sẵn cho add-in này -->
+  <Id>b707e24f-95fd-4596-95ca-fc45f0b7bb75</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>VietFormTech</ProviderName>
+  <DefaultLocale>vi-VN</DefaultLocale>
+  <DisplayName DefaultValue="Đọc số tiền bằng chữ (VNĐ)" />
+  <Description DefaultValue="Hàm DOCSO() đọc số tiền thành chữ tiếng Việt, ví dụ DOCSO(1000000) = 'Một triệu đồng'." />
+
+  <!-- THAY https://YOUR-DOMAIN bằng địa chỉ nơi bạn host các file này (xem README.md) -->
+  <IconUrl DefaultValue="https://YOUR-DOMAIN/icon-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://YOUR-DOMAIN/icon-80.png" />
+  <SupportUrl DefaultValue="https://YOUR-DOMAIN" />
+
+  <AppDomains>
+    <AppDomain>https://YOUR-DOMAIN</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://YOUR-DOMAIN/functions.html" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <Runtimes>
+          <Runtime resid="Functions.Runtime.Url" lifetime="long" />
+        </Runtimes>
+        <AllFormFactors>
+          <ExtensionPoint xsi:type="CustomFunctions">
+            <Script>
+              <SourceLocation resid="Functions.Script.Url" />
+            </Script>
+            <Page>
+              <SourceLocation resid="Functions.Runtime.Url" />
+            </Page>
+            <Metadata>
+              <SourceLocation resid="Functions.Metadata.Url" />
+            </Metadata>
+            <Namespace resid="Functions.Namespace" />
+          </ExtensionPoint>
+        </AllFormFactors>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Urls>
+        <bt:Url id="Functions.Script.Url" DefaultValue="https://YOUR-DOMAIN/functions.js" />
+        <bt:Url id="Functions.Runtime.Url" DefaultValue="https://YOUR-DOMAIN/functions.html" />
+        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://YOUR-DOMAIN/functions.json" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Functions.Namespace" DefaultValue="VNCHU" />
+      </bt:ShortStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
